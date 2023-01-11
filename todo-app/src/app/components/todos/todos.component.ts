@@ -7,6 +7,7 @@ import { Todo } from './../../model/Todo';
 })
 export class TodosComponent {
   todos!: Todo[];
+  inputTodo:string = ""
 constructor(){
 
 }
@@ -20,6 +21,13 @@ constructor(){
       completed: true
     }]
 
+  }
+  addTodo(){
+    this.todos.push({
+      content: this.inputTodo,
+      completed: false
+    })
+this.inputTodo =""
   }
   toggleDone(id:number): void{
     this.todos.map((v,i)=>{
